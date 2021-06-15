@@ -1,0 +1,43 @@
+{% extends 'support/base.html' %}
+
+{% block content %}
+
+
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>ダッシュボード</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> ホーム</a></li>
+        <li class="active">ダッシュボード</li>
+    </ol>
+
+    <!-- Main content -->
+    <section class="content">
+      <!-- Small boxes (Stat box) -->
+      <div class="row shousai">
+        <div>
+          {% if user.is_authenticated %}
+          <h1>{{company.name}}</h1>
+          
+          <div class="box20">
+            <br>
+            <p style="font-size: 2rem;">
+              ユーザー名: {{company.post_user}}&nbsp; 
+              (投稿日時 : {{company.date}})
+            </p><br>
+            <p>-詳細情報-</p>
+            <p>{{company.comment}}</p><br>
+          </div>
+          {% endif %}
+
+        </div>
+      </div>
+      <a class="btn btn-primary" href="{% url 'board:company_list' %}">会社一覧に戻る</a>
+
+    </section>
+    
+  </section>
+  
+</div>
+
+{% endblock %}

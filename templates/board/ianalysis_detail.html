@@ -1,0 +1,38 @@
+{% extends 'support/base.html' %}
+
+{% block content %}
+
+
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>ダッシュボード</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> ホーム</a></li>
+        <li class="active">ダッシュボード</li>
+    </ol>
+    <section class="content">
+      <div class="row shousai">
+        <div>
+          {% if user.is_authenticated %}
+          <h1 style="font-size: 4rem;">{{ianalysis.title}}</h1>
+          
+          <div class="box20">
+            <br>
+            <p style="font-size: 2rem;">
+              ユーザー名: {{ianalysis.post_user}}&nbsp; 
+              (投稿日時 : {{ianalysis.date}})
+            </p>
+            <br>
+            <p>{{ianalysis.comment}}</p>
+            <br>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <p><a class="btn btn-primary" href="{% url 'board:ianalysis_list' %}">自己分析一覧に戻る</a></p>
+    </section>
+  </section>
+</div>
+
+{% endblock %}

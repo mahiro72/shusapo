@@ -1,0 +1,165 @@
+@charset "utf-8";
+
+html {
+    height:100%;
+  }
+  
+  body {
+    margin:0;
+  }
+  
+  .bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+  
+  .bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+  }
+  
+  .bg3 {
+    animation-duration:5s;
+  }
+  
+  .content {
+    background-color:rgba(255,255,255,.8);
+    border-radius:.25em;
+    box-shadow:0 0 .25em rgba(0,0,0,.25);
+    box-sizing:border-box;
+    left:50%;
+    padding:10vmin;
+    position:fixed;
+    text-align:center;
+    top:50%;
+    transform:translate(-50%, -50%);
+  }
+  
+
+  
+  @keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
+  }
+  .page-header h1{
+      font-size: 3rem;
+
+}
+
+
+
+
+.shusapo-title:hover{
+    color: rgb(145, 255, 191);
+}
+.page-header{
+    display: flex;
+    justify-content: space-between;
+
+}
+.wrapper{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding :0 4%
+}
+.button{
+    background-color:rgba(154, 8, 183, 0.776) ;
+    color: azure;
+    padding: 16px 24px;
+    border-radius: 8px;
+    margin-bottom: 35px;
+    margin: 0 20px;
+
+}
+
+.button:hover{
+    background-color:rgba(192, 109, 209, 0.776) 
+}
+
+.buttons{
+    display: flex;
+    justify-content:center;
+}
+
+.main-nav{
+    display: flex;
+    font-size: 1.7rem;
+    margin-top: 34px;
+    /* font-weight: bold; */
+    text-transform: uppercase;
+}
+.main-nav li{
+    list-style: none;
+    margin-left: 36px;
+}
+.main-nav a{
+    color: azure;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.oshatitle{
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 3.6rem;
+}
+
+
+
+
+
+button{
+  background:#0e8f71;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:60px;
+  font-size:1.5rem;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+button:hover{
+  background:#fff;
+  color:#0e8f71;
+}
+button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+
+
+
+
+

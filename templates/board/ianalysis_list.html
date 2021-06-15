@@ -1,0 +1,63 @@
+{% extends 'support/base.html' %}
+
+{% block content %}
+
+
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>ダッシュボード</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> ホーム</a></li>
+        <li class="active">ダッシュボード</li>
+    </ol>
+  </section>
+
+  <section class="content">
+
+    <div class="row">
+      
+
+        {% if user.is_authenticated %}
+        <ul>
+          <h2 class="shusapo-subtitle" style="" id="iana">みんなの業界研究一覧</h2>
+          
+        
+        <br><p>投稿日時(↑最新 ↓過去)　
+          <input class="btn btn-primary" type="button" onclick="location.reload();" value="更新" />
+                
+        </p><br>
+        <p>
+          自由に業界研究のメモを残してください！
+        </p>
+        <p>
+          <a class="btn btn-success" href="{% url 'board:ianalysis_create' %}">新規投稿</a>
+          &nbsp;&nbsp;&nbsp;
+          <a class="btn btn-danger" href="{% url 'support:top' %}">Topに戻る</a>
+        </p>
+        
+        
+            {% for ianalysis in ianalysis_list %}
+              <div class="comlist shusapo-content">
+                  <p><span style="font-size: 30px;">{{ianalysis.title}}</span>&nbsp; (ユーザー名: {{ianalysis.post_user}})</p>
+                  <p>投稿日時: {{ianalysis.date}} <br><a href="{% url 'board:ianalysis_detail' ianalysis.pk %}" class="comdetail">詳細はこちらから</a></p>
+              </div>
+            
+            
+            {% endfor %}
+        </ul> 
+        {% endif %}
+
+        
+
+    </div>
+    <div class="row">
+        <section class="col-lg-7 connectedSortable"></section>
+    </div>
+
+    
+
+  </section>
+
+</div>
+
+{% endblock %}

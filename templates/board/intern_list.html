@@ -1,0 +1,80 @@
+{% extends 'support/base.html' %}
+
+{% block content %}
+
+
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>ダッシュボード</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> ホーム</a></li>
+        <li class="active">ダッシュボード</li>
+    </ol>
+  </section>
+  <!-- Main content -->
+  
+  <section class="content">
+    
+    <!-- Small boxes (Stat box) -->
+    <div class="row ">
+      
+
+        {% if user.is_authenticated %}
+        <ul>
+          <h2 class="shusapo-subtitle" id="es">インターンシップ情報</h2>
+        
+        <br><p>投稿日時(↑最新 ↓過去)　
+
+          <input class="btn btn-primary" type="button" onclick="location.reload();" value="更新" />
+                
+        </p><br>
+        <p>
+          最新の投稿から50件表示しています<br>
+          下のリンクからインターンのエントリーが可能です<br>
+          ※マイナビに登録してない方は登録が必要となります。
+        </p>
+
+        
+
+        <p>
+          <a class="btn btn-danger" href="{% url 'support:top' %}">Topに戻る</a>
+        </p>
+
+        
+            {% for ath in a_text_href %}
+            <p>
+              <div class="int-title">
+                <h3 >{{ath.text}}</h3>
+                <ul class="in-li">
+                  <li>
+                    企業詳細情報は<a href="https://job.mynavi.jp/{{ath.href}}">こちら</a>から<br>
+                  </li>
+                  <li>
+                    インターン応募は<a href="https://job.mynavi.jp/{{ath.href2}}">こちら</a>から
+                  </li>
+                </ul>
+             </div>
+            </p>
+
+
+            <br>
+            {% endfor %}
+        
+        
+
+            
+        </ul> 
+        {% endif %}
+
+    </div>
+    <div class="row">
+        <section class="col-lg-7 connectedSortable"></section>
+    </div>
+
+    
+
+  </section>
+
+</div>
+
+{% endblock %}

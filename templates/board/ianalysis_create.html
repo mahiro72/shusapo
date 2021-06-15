@@ -1,0 +1,28 @@
+{% extends 'support/base.html' %}
+
+{% block content %}
+
+<div class="content-wrapper">
+    <section class="content-header">
+      <h1>ダッシュボード</h1>
+      <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> ホーム</a></li>
+          <li class="active">ダッシュボード</li>
+      </ol>
+    </section>
+    <section class="content">
+      <div class="row">
+        <form action="" method="POST">
+            <table class="table">
+              {{ form.as_p }}
+            </table>
+            <button type="submit" class="btn btn-primary">送信</button>
+            {% csrf_token %}
+        </form>
+  
+      </div>
+      <div class="row">
+          <section class="col-lg-7 connectedSortable"></section>
+      </div>
+  </section>
+{% endblock %}

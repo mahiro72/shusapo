@@ -1,0 +1,123 @@
+
+{% extends './base.html' %}
+{% block content %}
+
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  
+  <!-- ============================== ここから以下を追加 ============================== -->
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1 class="dash">ダッシュボード</h1>
+    <br>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> ホーム</a></li>
+        <li class="active">ダッシュボード</li>
+    </ol>
+  </section>
+  <!-- Main content -->
+  <section class="content">
+    <!-- Small boxes (Stat box) -->
+    <div class="row" id="mainmenu">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h4>Company</h4>
+                    <p>会社一覧</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-android-share"></i>
+                </div>
+                <a href="{% url 'board:company_list' %}" class="small-box-footer">会社一覧画面を見る <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-xs-6">
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h4>Internship</h4>
+                    <p>インターンシップ情報</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-android-share"></i>
+                </div>
+                <a href="{% url 'board:intern_list' %}" class="small-box-footer">インターンシップ情報を見る <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h4>Self Analysis </h4>
+                    <p>自己分析</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-document"></i>
+                </div>
+                <a href="{% url 'board:sanalysis_list' %}" class="small-box-footer">みんなの自己分析を見る <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h4>Industry Eesearch</h4>
+                    <p>業界研究</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-document"></i>
+                </div>
+                <a href="{% url 'board:ianalysis_list' %}" class="small-box-footer">業界研究情報を見る <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-xs-6">
+            <div class="small-box bg-blue">
+                <div class="inner">
+                    <h4>Entry Sheet</h4>
+                    <p>エントリーシート</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-document"></i>
+                </div>
+                <a href="{% url 'board:es_list' %}" class="small-box-footer">自分のESを確認する <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="calen-comment">
+        
+        <div class="minkome" id="comment">
+            <h4>みんなの一言コメント一覧</h4>
+            <p>
+                投稿日時(↑最新 ↓過去)　
+                <input  class="btn btn-primary" type="button" onclick="location.reload();" value="更新" />
+                <a  href="{% url 'support:comment_create' %}" class="btn btn-success">新規追加</a>
+            </p>
+            {% for com in comments %}
+            <div class="comlist">
+                <p style="font-size: 20px;">{{com.main}}</p>
+                <p>(ユーザー名: {{com.post_user}} )</p>
+                <p>投稿日時: {{com.date}} </p>
+            
+            </div>
+            {% endfor %}
+            
+        </div>
+
+        <div class="calen" id="calendar">
+            <h2>Calendar</h2>
+            <iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23B39DDB&amp;ctz=Asia%2FTokyo&amp;src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%230B8043&amp;showTitle=0&amp;showNav=1&amp;showDate=1&amp;showTabs=0&amp;showPrint=0&amp;showCalendars=0" style="border:solid 1px #777" width="250" height="400" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </div>
+
+    <div class="row">
+        <section class="col-lg-7 connectedSortable"></section>
+    </div>
+</section>
+
+</div>
+
+{% endblock content %}
